@@ -2,11 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { USERS } from "../const/users";
 
-const Navigation = () => {
-  const [currentUser, setCurrentUser] = useState(USERS[0].id);
+const Navigation = ({currentUser, setCurrentUser}) => {
   return (
-    <div>
-      <nav className="nav flex container">
+    <div className="container">
+      <nav className="nav flex">
         {USERS.map((user) => {
           return (
             <a

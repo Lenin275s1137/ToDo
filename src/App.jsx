@@ -3,6 +3,8 @@ import "./App.css";
 import Navigation from "./components/Navigation";
 import Header from "./components/Header";
 import { AddTask } from "./components/AddTask";
+import { USERS } from "./const/users";
+import TaskList from "./components/TaskList";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -20,13 +22,28 @@ function App() {
       deadline: "31.08.2026",
       userId: "me",
     },
+     {
+      id: 3,
+      title: "third",
+      completed: true,
+      deadline: "31.08.2026",
+      userId: "chiefCountry",
+    }
   ]);
+  const [currentUser, setCurrentUser] = useState(USERS[0].id);
+  const showTodos = todos.filter((todo) => {
+    return todo.userId === currentUser 
+  })
+function addTodo (newTodo) {
+  setTodos([...todos, {...newTodo, userId: currentUser}])
+}
 
   return (
     <div className="App">
       <Header />
-      <Navigation />
-      <AddTask />
+      <Navigation currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+      <AddTask addTodo={addTodo}/>
+      <TaskList showTodos={showTodos}/>
     </div>
   );
 }

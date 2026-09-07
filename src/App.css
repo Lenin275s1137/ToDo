@@ -1,6 +1,16 @@
 .active {
-    display: inline-block;
-    border: 1px solid coral;
+  display: inline-block;
+
+  box-shadow:
+    0 4px 12px rgba(99, 102, 241, 0.35),
+    0 8px 24px rgba(167, 139, 250, 0.2);
+  transform: translateY(-4px);
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .change {
@@ -42,13 +52,13 @@ img {
   font-size: 14px;
   margin: 0;
   font-weight: 600;
-  color: #374151; 
+  color: #374151;
   padding: 0 1rem;
   line-height: 1.5;
 }
 
 .date {
   width: 100%;
-  border: none; 
-  border-bottom: 1px solid #cbd5e1; 
+  border: none;
+  border-bottom: 1px solid #cbd5e1;
 }
