@@ -21,9 +21,11 @@ export const AddTask = ({ addTodo }) => {
                 id: Date.now(),
                 title: taskTitle,
                 completed: false,
-                deadline: "31.08.2026",
+                deadline: new Date().toLocaleDateString(),
               };
-               addTodo(newTask)
+              addTodo(newTask);
+
+              setTaskTitle("");
             }}
             class="btn btn-primary"
           >
