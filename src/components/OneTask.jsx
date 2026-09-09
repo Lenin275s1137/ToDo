@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OneTask = ({todo}) => {
+const OneTask = ({todo, deleteTodo, toggleTodo}) => {
   return (
      <li className={`list-group-item d-flex justify-content-between align-items-center ${todo.completed === true ? 'list-group-item-success' : ''} ${todo.deadline > new Date().toLocaleDateString()&&todo.completed === false ? 'list-group-item-overdue' : ""}`}>
               {todo.title}
@@ -10,10 +10,10 @@ const OneTask = ({todo}) => {
                   <p>{todo.deadline}</p>
                   {/* <input type="date" className="date fake-placeholder" value={todo.deadline}/> */}
                 </fieldset>
-                <button className="btn btn-success">
+                <button className="btn btn-success" onClick={()=> {toggleTodo(todo.id)}}>
                   {todo.completed === true ? "Отменить" : "Готово"}
                 </button>
-                <button className="btn btn-danger">Удалить</button>
+                <button className="btn btn-danger" onClick={()=> {deleteTodo(todo.id)}}>Удалить</button>
               </div>
             </li>
   )
